@@ -55,13 +55,13 @@ return {
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          get_selection_window = function()
+            local picker = require 'window-picker'
+            local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
+            return picked_window_id
+          end,
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

@@ -122,6 +122,14 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          local bufnr = event.buf
+          if client and vim.tbl_contains({ 'null-ls' }, client.name) then
+            return
+          end
+          require('lsp_signature').on_attach({
+            -- setup options here
+          }, bufnr)
         end,
       })
 

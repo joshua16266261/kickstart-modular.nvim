@@ -58,10 +58,19 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 20
 
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = 'gray', bold = false })
-vim.api.nvim_set_hl(0, 'LineNr', { fg = '#ffe5b4', bold = true })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'gray', bold = false })
+-- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = 'gray', bold = false })
+-- vim.api.nvim_set_hl(0, 'LineNr', { fg = '#ffe5b4', bold = true })
+-- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = 'gray', bold = false })
 
+-- Show border for horizontal splits
 vim.opt.laststatus = 3
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+  end,
+  group = vim.api.nvim_create_augroup('General', { clear = true }),
+  desc = 'Disable new line comment',
+})
