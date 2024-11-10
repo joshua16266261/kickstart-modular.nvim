@@ -56,6 +56,15 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
+          scroll_strategy = 'limit',
+          mappings = {
+            i = {
+              ['kj'] = { '<esc>', type = 'command' },
+            },
+            n = {
+              ['kj'] = require('telescope.actions').close,
+            },
+          },
           get_selection_window = function()
             local picker = require 'window-picker'
             local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
