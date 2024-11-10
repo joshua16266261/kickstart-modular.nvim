@@ -27,6 +27,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<CR>', 'o<Esc>')
 vim.keymap.set('n', '<leader><CR>', 'O<Esc>')
 
+-- Create splits
+vim.keymap.set('n', '<leader>\\', ':vsplit<CR>')
+vim.keymap.set('n', '<leader>-', ':split<CR>')
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -41,4 +45,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+  end,
+  group = vim.api.nvim_create_augroup('General', { clear = true }),
+  desc = 'Disable new line comment',
+})
 -- vim: ts=2 sts=2 sw=2 et
