@@ -31,6 +31,8 @@ vim.keymap.set('n', '<leader><CR>', 'O<Esc>')
 vim.keymap.set('n', '<leader>\\', ':vsplit<CR>')
 vim.keymap.set('n', '<leader>-', ':split<CR>')
 
+vim.keymap.set('n', '<leader>ms', ':MaximizerToggle<CR>', { desc = '[M]aximize [S]plit' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
