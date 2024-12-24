@@ -58,8 +58,8 @@ return {
 
           ['<CR>'] = cmp.mapping.confirm { select = true },
           ['<Tab>'] = cmp.mapping.confirm { select = true },
-          ['<leader>j'] = cmp.mapping.select_next_item(),
-          ['<leader>k'] = cmp.mapping.select_prev_item(),
+          ['<C-j>'] = cmp.mapping.select_next_item(),
+          ['<C-k>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
