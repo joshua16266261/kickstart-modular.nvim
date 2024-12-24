@@ -8,7 +8,7 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       require('catppuccin').setup {
-        flavour = 'mocha',
+        flavour = 'frappe',
         custom_highlights = function(colors)
           return {
             CursorLineNr = { fg = colors.flamingo },
