@@ -24,6 +24,19 @@ return {
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    config = function()
+      vim.o.foldmethod = 'expr'
+      vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+      -- Syntax highlight first line of fold
+      vim.o.foldtext = ''
+
+      -- Don't close folds by default
+      vim.o.foldlevel = 99
+      -- Allow one level of nesting before default closing
+      vim.o.foldlevelstart = 2
+      vim.o.foldnestmax = 4
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
