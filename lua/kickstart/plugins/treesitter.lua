@@ -31,10 +31,8 @@ return {
       -- Syntax highlight first line of fold
       vim.o.foldtext = ''
 
-      -- Don't close folds by default
       vim.o.foldlevel = 99
-      -- Allow one level of nesting before default closing
-      vim.o.foldlevelstart = 2
+      vim.o.foldlevelstart = 1
       vim.o.foldnestmax = 4
     end,
   },
