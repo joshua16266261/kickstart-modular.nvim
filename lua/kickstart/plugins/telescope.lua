@@ -57,6 +57,7 @@ return {
               ['kj'] = require('telescope.actions').close,
             },
           },
+          layout_strategy = 'vertical',
           get_selection_window = function()
             local picker = require 'window-picker'
             local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
