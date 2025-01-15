@@ -49,14 +49,6 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
           scroll_strategy = 'limit',
-          mappings = {
-            i = {
-              ['kj'] = { '<esc>', type = 'command' },
-            },
-            n = {
-              ['kj'] = require('telescope.actions').close,
-            },
-          },
           layout_strategy = 'vertical',
           get_selection_window = function()
             local picker = require 'window-picker'
