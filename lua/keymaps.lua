@@ -1,10 +1,9 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Clear highlights on search when pressing 'kj' in normal mode
+-- Clear highlights on search when pressing '<Esc>' in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set({ 'i', 'c', 'v' }, 'kj', '<Esc>')
 
 -- Go back to previous tag
 -- Can be used to walk back [G]oto [D]efinition
@@ -27,11 +26,9 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<CR>', 'o<Esc>')
 vim.keymap.set('n', '<leader><CR>', 'O<Esc>')
 
--- Create splits
-vim.keymap.set('n', '<leader>\\', ':vsplit<CR>')
-vim.keymap.set('n', '<leader>-', ':split<CR>')
-
 vim.keymap.set('n', '<leader>ms', ':MaximizerToggle<CR>', { desc = '[M]aximize [S]plit' })
+
+vim.keymap.set('v', '<leader>rly', 'd<cr>"0P', { desc = '[R]eplace with [L]ast [Y]ank' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
