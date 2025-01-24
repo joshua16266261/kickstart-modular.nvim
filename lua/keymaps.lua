@@ -26,11 +26,9 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<CR>', 'o<Esc>')
 vim.keymap.set('n', '<leader><CR>', 'O<Esc>')
 
--- Create splits
-vim.keymap.set('n', '<leader>\\', ':vsplit<CR>')
-vim.keymap.set('n', '<leader>-', ':split<CR>')
-
 vim.keymap.set('n', '<leader>ms', ':MaximizerToggle<CR>', { desc = '[M]aximize [S]plit' })
+
+vim.keymap.set('v', '<leader>rly', 'd<cr>"0P', { desc = '[R]eplace with [L]ast [Y]ank' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
