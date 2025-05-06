@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>op', ':e#<CR>', { desc = '[O]pen [P]revious file' }
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '?', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Show diagnostic in floating window' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -29,6 +30,13 @@ vim.keymap.set('n', '<leader><CR>', 'O<Esc>')
 vim.keymap.set('n', '<leader>ms', ':MaximizerToggle<CR>', { desc = '[M]aximize [S]plit' })
 
 vim.keymap.set('v', '<leader>rly', 'd<cr>"0P', { desc = '[R]eplace with [L]ast [Y]ank' })
+
+-- Navigate windows
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-s>', ':vsplit<CR>')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

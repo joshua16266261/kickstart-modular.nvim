@@ -45,6 +45,9 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -60,3 +63,7 @@ vim.opt.laststatus = 3
 
 -- Show a vertical line at 80 characters
 vim.opt.colorcolumn = '80'
+
+-- Show diagnostics in separate virtual lines
+vim.diagnostic.config { virtual_lines = true }
+

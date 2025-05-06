@@ -133,17 +133,22 @@ return {
           require('lsp_signature').on_attach({
             -- setup options here
           }, bufnr)
+          -- Change diagnostic symbols in the sign column (gutter)
+          if vim.g.have_nerd_font then
+            local signs = { Error = '', Warn = '', Hint = '', Info = '' }
+            vim.diagnostic.config({
+              signs = {
+                text = {
+                  [vim.diagnostic.severity.ERROR] = signs.Error,
+                  [vim.diagnostic.severity.WARN] = signs.Warn,
+                  [vim.diagnostic.severity.INFO] = signs.Hint,
+                  [vim.diagnostic.severity.HINT] = signs.Info,
+                },
+              },
+            })
+          end
         end,
       })
-
-      -- Change diagnostic symbols in the sign column (gutter)
-      if vim.g.have_nerd_font then
-        local signs = { Error = '', Warn = '', Hint = '', Info = '' }
-        for type, icon in pairs(signs) do
-          local hl = 'DiagnosticSign' .. type
-          vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-        end
-      end
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -163,6 +168,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {
+          cmd = { 'clangd', '--header-insertion=never', '--clang-tidy', '--log=error' },
           filetypes = { 'cpp', 'hpp', 'cc', 'hh', 'c', 'h' },
         },
         -- gopls = {},

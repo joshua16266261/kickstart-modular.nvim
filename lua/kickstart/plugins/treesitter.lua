@@ -32,7 +32,7 @@ return {
       vim.o.foldtext = ''
 
       vim.o.foldlevel = 99
-      vim.o.foldlevelstart = 1
+      vim.o.foldlevelstart = 5
       vim.o.foldnestmax = 4
     end,
   },

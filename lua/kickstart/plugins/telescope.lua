@@ -49,7 +49,7 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
           scroll_strategy = 'limit',
-          layout_strategy = 'vertical',
+          layout_strategy = 'horizontal',
           get_selection_window = function()
             local picker = require 'window-picker'
             local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()

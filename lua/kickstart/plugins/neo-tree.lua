@@ -2,7 +2,7 @@
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
 vim.keymap.set('n', '<leader>tf', ':Neotree toggle<CR>', { desc = '[T]oggle [F]iletree' })
-vim.keymap.set('n', '-', function()
+vim.keymap.set('n', '<leader>tg', function()
   local reveal_file = vim.fn.expand '%:p'
   if reveal_file == '' then
     reveal_file = vim.fn.getcwd()
@@ -16,12 +16,11 @@ vim.keymap.set('n', '-', function()
   end
   require('neo-tree.command').execute {
     action = 'focus', -- OPTIONAL, this is the default value
-    source = 'filesystem', -- OPTIONAL, this is the default value
-    position = 'left', -- OPTIONAL, this is the default value
+    source = 'git_status',
+    position = 'float',
     reveal_file = reveal_file, -- path to file or folder to reveal
-    reveal_force_cwd = true, -- change cwd without asking if needed
   }
-end, { desc = 'Open neo-tree at current file or working directory' })
+end, { desc = '[T]oggle [G]it status' })
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
@@ -32,4 +31,14 @@ return {
     'MunifTanjim/nui.nvim',
   },
   cmd = 'Neotree',
+  opts = {
+    enable_git_status = true,
+    enable_diagnostics = true,
+    window = {
+      mappings = {
+        ['<cr>'] = 'open_with_window_picker',
+      },
+      width = 50,
+    },
+  },
 }
