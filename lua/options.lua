@@ -67,3 +67,4 @@ vim.opt.colorcolumn = '80'
 -- Show diagnostics in separate virtual lines
 vim.diagnostic.config { virtual_lines = true }
 
+vim.lsp.set_log_level("OFF");
